@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+
+{% block 'titulo'%}
+Logar
+
+{% endblock%}
+
+{% block 'body' %}
+<section class="vh-100" style="background-color: #00ffff;">
+    <div class="container py-5 h-100">
+      
+      
+          {% if status == '1' %}
+        <div class="alert alert-danger" role="alert">
+          E-mail ou senha inválido
+        </div>
+      {% endif %}
+      {% if status == '2' %}
+        <div class="alert alert-warning" role="alert">
+          Faça login antes de acessar o sistema!
+        </div>
+      {% endif %}
+
+
+
+    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+      <div class="card shadow-2-strong" style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
+          <br>
+          <h1>Login</h1>
+          <hr>
+          <form method="POST" action="{% url 'valida_login'%}">{% csrf_token %}
+              <label>Digite seu Email:</label>
+              <input class="form-control" type="text" placeholder="E-mail" name = "email">
+              <br>
+              <label>Digite seu senha:</label>
+              <input class="form-control" type="password" placeholder="Senha" name = "senha">
+              <br>
+              <input class="btn btn-success btn-lg" type="submit">
+              <a href="{% url 'cadastro'%}" class="btn btn-danger btn-lg">Cadastre-se</a>
+          </form>
+      </div>
+      <div class="col-md-3">
+
+      </div>
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+        {% extends 'base.html'%}
+
+        {% block 'titulo'%}
+        Cadastro
+
+        {% endblock%}
+
+        {% block 'body' %}
+        <section class="vh-100" style="background-color: #00ffff;">
+            <div class="container py-5 h-100">
+
+                                {% if status == '1' %}
+                <div class="alert alert-danger" role="alert">
+                    E-mail já cadastrado no sistema
+                    </div>
+                {% endif %}
+
+                {% if status == '2' %}
+                <div class="alert alert-danger" role="alert">
+                    Nome e Email não podem ser vazios
+                    </div>
+                {% endif %}
+
+                {% if status == '3' %}
+                <div class="alert alert-danger" role="alert">
+                    Senha deve conter no mínimo 8 caracteres
+                    </div>
+                {% endif %}
+
+                {% if status == '4' %}
+                <div class="alert alert-danger" role="alert">
+                    Erro interno do sistema
+                    </div>
+                {% endif %}
+
+                {% if status == '0' %}
+                <div class="alert alert-success" role="alert">
+                    Cadastro confirmado com sucesso
+                    </div>
+                {% endif %}
+
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                  <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+          
+                        <br>
+                        <h1>Cadastre-se</h1>
+                        <hr>
+                        <form method="POST" action="{% url 'valida_cadastro'%}">{% csrf_token %}
+                            <label>Digite seu nome:</label>
+                            <input class="form-control" type="text" placeholder="Nome..." name = "nome">
+                            <br>
+                            <label>Digite seu Email:</label>
+                            <input class="form-control" type="text" placeholder="E-mail" name = "email">
+                            <br>
+                            <label>Digite seu senha:</label>
+                            <input class="form-control" type="password" placeholder="Senha" name = "senha">
+                            <br>
+                            <input class="btn btn-success btn-lg" type="submit">
+                            <a href="{% url 'login'%}"" class="btn btn-danger btn-lg">Logar</a>
+                        </form>
+                    </div>
+               
+                    <div class="col-md-3">
+        
+                </div> 
+          </div>    
+        </div>     
+      </div>
+  </div>
+
+</div>
+{% endblock %}

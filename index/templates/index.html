@@ -1,0 +1,63 @@
+{% extends 'base.html'%}
+
+{% block 'titulo'%}
+Logar
+
+{% endblock%}
+
+{% block 'body' %}
+<section class="vh-100" style="background-color: #00ffff;">
+    
+    
+    
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Principal CSS do Bootstrap -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos customizados para esse template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+       
+      </header>
+
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading">Sistema EAD - Univesp PII </h1>
+        <p class="lead">Seja bem-vindo(a) ao nosso Sistema de Ensino a Distância (EAD)!
+
+            Estamos felizes em tê-lo(a) conosco nesta jornada de aprendizado. <br /> 
+            Aqui, você terá acesso a conteúdos de alta qualidade, flexibilidade para estudar no seu ritmo e suporte contínuo para alcançar seus objetivos.<br />
+            Aproveite ao máximo essa experiência e conte sempre com a nossa equipe para ajudá-lo(a) em cada etapa do seu desenvolvimento.<br />
+            
+            Bom estudo e sucesso!</p>
+        <p class="lead">
+            <a href="{% url 'login'%}" class="btn btn-lg btn-primary">Acessar a plataforma</a>
+        </p>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Template de capa usando <a href="https://getbootstrap.com/">Bootstrap</a>, feito pelo <a href="">@Wagner Bregantin</a>.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Principal JavaScript do Bootstrap
+    ================================================== -->
+    <!-- Foi colocado no final para a página carregar mais rápido -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+
+
+{% endblock %}
