@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <title>{% block 'titulo'%}{% endblock %}</title>
+    
+    <style>
+      /* Cor de fundo para a página */
+      body {
+          font-size: 16px; /* Tamanho de fonte padrão */
+          background-color: #00ffff; 
+          color: #333; 
+          font-family: Arial, sans-serif;
+          margin: 20px;
+      }
+
+      /* Estilo dos botões */
+      .font-size-buttons {
+          margin: 20px 0;
+      }
+
+      button {
+          background-color: #4CAF50; 
+          color: white; /* Texto branco */
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+      }
+
+      button:hover {
+          background-color: #45a049; /* Verde escuro ao passar o mouse */
+      }
+  </style>
+
+
+    
+    
     {% block 'head' %}{% endblock %}
   </head>
   <body>
@@ -18,6 +52,46 @@
     </nav>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" ></script>
+    
+
+    
+    
+    <!-- Botões para aumentar e diminuir a fonte -->
+    <div class="font-size-buttons">
+        <button class="btn btn-primary btn-sm" onclick="aumentarFonte()">A + </button> 
+        <button class="btn btn-secondary btn-sm" onclick="diminuirFonte()">A - </button>
+    </div>
+
+    <script>
+        // Função para aumentar o tamanho da fonte de todos os elementos de texto
+        function aumentarFonte() {
+            // Seleciona todos os elementos de texto (h1, p, li, etc.)
+            var elementosTexto = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, a, span, div');
+
+            // Itera sobre cada elemento e ajusta o tamanho da fonte
+            elementosTexto.forEach(function(elemento) {
+                var estiloAtual = window.getComputedStyle(elemento, null).getPropertyValue('font-size');
+                var tamanhoAtual = parseFloat(estiloAtual);
+                elemento.style.fontSize = (tamanhoAtual + 2) + 'px';
+            });
+        }
+
+        // Função para diminuir o tamanho da fonte de todos os elementos de texto
+        function diminuirFonte() {
+            // Seleciona todos os elementos de texto (h1, p, li, etc.)
+            var elementosTexto = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, a, span, div');
+
+            // Itera sobre cada elemento e ajusta o tamanho da fonte
+            elementosTexto.forEach(function(elemento) {
+                var estiloAtual = window.getComputedStyle(elemento, null).getPropertyValue('font-size');
+                var tamanhoAtual = parseFloat(estiloAtual);
+                elemento.style.fontSize = (tamanhoAtual - 2) + 'px';
+            });
+        }
+    </script>
+
+
+
     {% block 'body'%}{% endblock %}
       
    
